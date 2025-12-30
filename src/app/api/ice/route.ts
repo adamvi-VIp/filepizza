@@ -30,7 +30,7 @@ export async function POST(): Promise<NextResponse> {
     iceServers: [
       { urls: stunServer },
       {
-        urls: [`turn:${turnHost}:3478`, `turns:${turnHost}:5349`],
+        urls: [`turn:${turnHost}:3478`],
         username,
         credential: password,
       },
