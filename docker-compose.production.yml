@@ -25,11 +25,13 @@ services:
     build: .
     image: kern/filepizza:latest
     ports:
-      - 0.0.0.0:8081:80
+      - 0.0.0.0:8081:3000
     environment:
-      - PORT=80
+      - PORT=3000
       - REDIS_URL=redis://redis:6379
       - COTURN_ENABLED=true
+      - TURN_HOST=${SERVICE_FQDN_COTURN}
+      - TURN_REALM=file.pizza
     networks:
       - filepizza
     depends_on:
