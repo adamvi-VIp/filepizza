@@ -29,13 +29,12 @@ export async function POST(): Promise<NextResponse> {
     path: peerjsPath,
     iceServers: [
       { urls: stunServer },
+      { urls: [`stun:${turnHost}:3478`] },
       {
-        urls: [`turn:${turnHost}:3478?transport=udp`],
-        username,
-        credential: password,
-      },
-      {
-        urls: [`turn:${turnHost}:3478?transport=tcp`],
+        urls: [
+          `turn:${turnHost}:3478?transport=udp`,
+          `turn:${turnHost}:3478?transport=tcp`,
+        ],
         username,
         credential: password,
       },

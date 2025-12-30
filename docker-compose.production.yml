@@ -18,7 +18,7 @@ services:
     environment:
       - DETECT_EXTERNAL_IP=yes
       - DETECT_RELAY_IP=yes
-    command: -n --log-file=stdout --fingerprint --lt-cred-mech --realm=file.pizza --redis-userdb="ip=redis connect_timeout=30" --min-port=60000 --max-port=60500
+    command: -n --log-file=stdout --fingerprint --lt-cred-mech --realm=file.pizza --redis-userdb="ip=redis connect_timeout=30" --min-port=60000 --max-port=60500 -L 0.0.0.0 --no-multicast-peers
     networks:
       - filepizza
   filepizza:
